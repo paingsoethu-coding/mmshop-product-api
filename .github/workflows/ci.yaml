@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'  # Enable npm cache
       
       - name: Install dependencies
         run: npm install
@@ -34,9 +35,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies
-      if: ${{ env.INSTALL_DEPENDENCIES == 'true' }}  # <-- casting string to boolean logic
-      run: npm install
+          cache: 'npm'  # This will reuse the cache from the build job 
       
       - name: Run unit tests
         run: npm test # this should be the command to run your unit tests  
