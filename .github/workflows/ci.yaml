@@ -35,11 +35,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'  # This will reuse the cache from the build job
-      
-      # No need to run npm install again as the cache will be used
-      # The setup-node action with cache enabled will restore the
-      # node_modules from cache if available
+          cache: 'npm'  # This will reuse the cache from the build job 
       
       - name: Run unit tests
         run: npm test # this should be the command to run your unit tests  
