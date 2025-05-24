@@ -21,7 +21,7 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v4
         with:
-          key : ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key : ${{ runner.os }}-node-${{ hashFiles('package-lock.json', 'package.json') }}
           path: ~/.npm
           restore-keys: |     # Optional Key to restore cache from previous runs
             ${{ runner.os }}-node-
@@ -49,7 +49,7 @@ jobs:
         id: cache-node-modules
         uses: actions/cache@v4
         with:
-          key : ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key : ${{ runner.os }}-node-${{ hashFiles('package-lock.json', 'package.json') }}
           path: ~/.npm
           restore-keys: |    
             ${{ runner.os }}-node-
